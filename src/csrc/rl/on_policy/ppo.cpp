@@ -447,22 +447,22 @@ void PPOSystem::trainStep(float& p_loss_val, float& q_loss_val) {
             clip_fraction_, explained_variance_);
 
   // system logging
-  if ((system_state_->report_frequency > 0) && (train_step_count_ % system_state_->report_frequency == 0)) {
-    if (!system_comm_ || (system_comm_ && system_comm_->rank == 0)) {
-      std::stringstream os;
-      os << "PPO system: "
-         << "clip_fraction: " << clip_fraction_ << ", kl_divergence: " << current_kl_divergence_
-         << ", explained_variance: " << explained_variance_ << std::endl;
-      torchfort::logging::print(os.str(), torchfort::logging::info);
-      if (system_state_->enable_wandb_hook) {
-        torchfort::wandb_log(system_state_, system_comm_, "PPO", "clip_fraction", train_step_count_, clip_fraction_);
-        torchfort::wandb_log(system_state_, system_comm_, "PPO", "kl_divergence", train_step_count_,
-                             current_kl_divergence_);
-        torchfort::wandb_log(system_state_, system_comm_, "PPO", "explained_variance", train_step_count_,
-                             explained_variance_);
-      }
-    }
-  }
+  // if ((system_state_->report_frequency > 0) && (train_step_count_ % system_state_->report_frequency == 0)) {
+    // if (!system_comm_ || (system_comm_ && system_comm_->rank == 0)) {
+      // std::stringstream os;
+      // os << "PPO system: "
+         // << "clip_fraction: " << clip_fraction_ << ", kl_divergence: " << current_kl_divergence_
+         // << ", explained_variance: " << explained_variance_ << std::endl;
+      // torchfort::logging::print(os.str(), torchfort::logging::info);
+      // if (system_state_->enable_wandb_hook) {
+        // torchfort::wandb_log(system_state_, system_comm_, "PPO", "clip_fraction", train_step_count_, clip_fraction_);
+        // torchfort::wandb_log(system_state_, system_comm_, "PPO", "kl_divergence", train_step_count_,
+                             // current_kl_divergence_);
+        // torchfort::wandb_log(system_state_, system_comm_, "PPO", "explained_variance", train_step_count_,
+                             // explained_variance_);
+      // }
+    // }
+  // }
 }
 
 } // namespace on_policy

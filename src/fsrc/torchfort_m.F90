@@ -822,7 +822,7 @@ module torchfort
      module procedure torchfort_rl_on_policy_train_step_float
   end interface torchfort_rl_on_policy_train_step
 
-  interface  torchfort_rl_on_policy_predict_explore
+  interface torchfort_rl_on_policy_predict_explore
      module procedure torchfort_rl_on_policy_predict_explore_float_2d_2d
 	 module procedure torchfort_rl_on_policy_predict_explore_double_2d_2d ! SBM on-policy
      module procedure torchfort_rl_on_policy_predict_explore_float_4d_4d
@@ -846,7 +846,7 @@ module torchfort
 #endif
   end interface torchfort_rl_on_policy_predict
 
-  interface  torchfort_rl_on_policy_evaluate
+  interface torchfort_rl_on_policy_evaluate
      module procedure torchfort_rl_on_policy_evaluate_float_2d_2d
 	 module procedure torchfort_rl_on_policy_evaluate_double_2d_2d ! SBM on-policy
      module procedure torchfort_rl_on_policy_evaluate_float_4d_4d
